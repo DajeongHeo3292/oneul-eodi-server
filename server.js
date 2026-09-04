@@ -51,18 +51,11 @@ const AREA_BOUNDS = {
   sinchon:   { minx: 126.9350, maxx: 126.9500, miny: 37.5550, maxy: 37.5620 },
   konkuk:    { minx: 127.0650, maxx: 127.0750, miny: 37.5380, maxy: 37.5450 },
   jongno:    { minx: 126.9850, maxx: 126.9950, miny: 37.5670, maxy: 37.5720 },
-  insadong:  { minx: 126.9830, maxx: 126.9880, miny: 37.5730, maxy: 37.5770 },
-  gwanghwamun:{ minx: 126.9740, maxx: 126.9800, miny: 37.5640, maxy: 37.5700 },
-  gyeongbok: { minx: 126.9730, maxx: 126.9800, miny: 37.5770, maxy: 37.5830 },
-  banpo:     { minx: 126.9950, maxx: 127.0150, miny: 37.5080, maxy: 37.5150 },
-  seoulforest:{ minx: 127.0370, maxx: 127.0450, miny: 37.5420, maxy: 37.5480 },
-  olympicpark:{ minx: 127.1170, maxx: 127.1300, miny: 37.5150, maxy: 37.5230 },
   ikseondong:{ minx: 126.9870, maxx: 126.9920, miny: 37.5720, maxy: 37.5760 },
   dongdaemun:{ minx: 127.0070, maxx: 127.0150, miny: 37.5650, maxy: 37.5720 },
   sillim:    { minx: 126.9280, maxx: 126.9350, miny: 37.4820, maxy: 37.4870 },
   sadang:    { minx: 126.9800, maxx: 126.9850, miny: 37.4750, maxy: 37.4800 },
   snu:       { minx: 126.9500, maxx: 126.9550, miny: 37.4800, maxy: 37.4850 },
-  ddp:       { minx: 127.0070, maxx: 127.0120, miny: 37.5650, maxy: 37.5700 },
   yeonnam:   { minx: 126.9200, maxx: 126.9280, miny: 37.5600, maxy: 37.5650 },
 };
 
@@ -177,7 +170,8 @@ function isFunVenue(it){
 function simplifyCategory(it){
   const text = [it.indsMclsNm, it.indsSclsNm].filter(Boolean).join(' ');
   if (/카페|커피|베이커리|제과|디저트|찻집/.test(text)) return '카페';
-  if (/클럽|무도|유흥/.test(text)) return '클럽';
+  if (/클럽|무도/.test(text)) return '클럽';
+  if (/유흥/.test(text)) return '유흥';
   if (/주점|호프|이자카야|와인바|포장마차|펍|바\(/.test(text)) return '술집';
   if (/노래|오락|게임|당구|볼링|PC방|보드게임|만화방/.test(text)) return '오락';
   if (/음식|한식|중식|일식|양식|분식|치킨|패스트푸드|뷔페/.test(text)) return '식당';
